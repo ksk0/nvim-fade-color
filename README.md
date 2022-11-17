@@ -2,6 +2,45 @@
 Fade RGB color between two given colors by percentage.
 
 
+## Installation
+
+#### Using packer in lua
+```lua
+use ("ksk0/nvim-fade-color")
+```
+#### Using vim-plug in vimscript
+```
+Plug 'ks0/nvim-fade-color'
+```
+
+
+## Usage
+```
+faded_color = require("fade-color").fade(src_color, dst_color, fade)
+```
+
+#### where:
+
+- `fade` is number from 0 to 1 (representing percentage)
+- src_color is color to be faded
+- dst_color color to achieve when fade is 100% (fade = 1)
+- faded_color is resulting (faded) color
+
+#### Value of `src_color`, `dst_color` and `fade_color`
+
+Input values cane be given either as number:
+```
+src_color = 34563345
+```
+or as list of RGB values:
+```
+src_color = {126, 224, 68}
+```
+while `faded_color` format depends of format of `src_value`. If number,
+`fade_color` will be number, and if `src_value` is list, `fade_color`
+will also be list of **RGB** values.
+
+
 ## How and why
 Fading can be done, by adjusting each **RGB** color separately in range between
 **source** and **destination** color. If faded that way, at 0% faded color will
@@ -12,7 +51,7 @@ entire color spectrum between source and destination color.
 This plugin uses **HSL** (Hue Saturation Lightness) color representation for
 faded color calculation. In **HSL** representation, **Hue** represents color,
 while **Saturation** and **Lightness** basically represent **intensity** of
-in color.
+a color.
 
 Calculation is done on **HSL** values, and later converted to **RGB** values.
 The formula is:
@@ -58,41 +97,3 @@ thus showing how text in **ErrorMsg** color, fades into **Normal** background.
 
 More info on **HSL** representation here: [wiki page](https://en.wikipedia.org/wiki/HSL_and_HSV)
 
-
-## Installation
-
-#### Using packer in lua
-```lua
-use ("ksk0/nvim-fade-color")
-```
-#### Using vim-plug in vimscript
-```
-Plug 'ks0/nvim-fade-color'
-```
-
-
-## Usage
-```
-faded_color = require("fade-color").fade(src_color, dst_color, fade)
-```
-
-#### where:
-
-- `fade` is number from 0 to 1 (representing percentage)
-- src_color is color to be faded
-- dst_color color to achieve when fade is 100% (fade = 1)
-- faded_color is resulting (faded) color
-
-#### Value of `src_color`, `dst_color` and `fade_color`
-
-Input values cane be given either as number:
-```
-src_color = 34563345
-```
-or as list of RGB values:
-```
-src_color = {126, 224, 68}
-```
-while `faded_color` format depends of format of `src_value`. If number,
-`fade_color` will be number, and if `src_value` is list, `fade_color`
-will also be list of **RGB** values.
