@@ -22,9 +22,9 @@ faded_color = require("fade-color").fade(src_color, dst_color, fade)
 #### where:
 
 - `fade` is number from 0 to 1 (representing percentage)
-- src_color is color to be faded
-- dst_color color to achieve when fade is 100% (fade = 1)
-- faded_color is resulting (faded) color
+- `src_color` is color to be faded
+- `dst_color` color to achieve when fade is 100% (fade = 1)
+- `faded_color` is resulting (faded) color
 
 #### Value of `src_color`, `dst_color` and `fade_color`
 
